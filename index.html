@@ -16,13 +16,13 @@
         }
 
         :root {
-            --background: #0f0f14;
+            --background: #0a0a0f;
             --foreground: #fafafa;
             --card: #1a1a24;
             --primary: #a855f7;
             --accent: #3b82f6;
-            --muted: #333340;
-            --border: #333340;
+            --muted: #6b7280;
+            --border: #2d2d3d;
         }
 
         html {
@@ -44,7 +44,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(15, 15, 20, 0.8);
+            background: rgba(10, 10, 15, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 1rem 0;
@@ -53,7 +53,7 @@
 
         nav.scrolled {
             padding: 0.5rem 0;
-            background: rgba(15, 15, 20, 0.95);
+            background: rgba(10, 10, 15, 0.95);
         }
 
         .nav-container {
@@ -122,7 +122,6 @@
             box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -148,50 +147,40 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
             background-size: 60px 60px;
-            opacity: 0.2;
+            opacity: 0.3;
         }
 
         .floating-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+            filter: blur(100px);
+            opacity: 0.2;
+            animation: float 8s ease-in-out infinite;
         }
 
         .orb-1 {
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             top: 10%;
-            left: -10%;
+            left: -15%;
         }
 
         .orb-2 {
-            width: 350px;
-            height: 350px;
+            width: 400px;
+            height: 400px;
             background: linear-gradient(135deg, var(--accent), var(--primary));
             bottom: 10%;
-            right: -10%;
+            right: -15%;
             animation-delay: 2s;
-        }
-
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 1s;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-30px); }
         }
 
         .hero-content {
@@ -248,13 +237,13 @@
         }
 
         .code-snippet {
-            background: rgba(26, 26, 36, 0.6);
+            background: rgba(20, 20, 30, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 1.5rem;
             margin: 2rem auto;
-            max-width: 500px;
+            max-width: 600px;
             text-align: left;
         }
 
@@ -283,22 +272,24 @@
 
         code {
             font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 2;
         }
 
         .code-purple { color: #a855f7; }
-        .code-blue { color: #3b82f6; }
-        .code-yellow { color: #eab308; }
-        .code-green { color: #22c55e; }
+        .code-blue { color: #60a5fa; }
+        .code-yellow { color: #fbbf24; }
+        .code-green { color: #34d399; }
+        .code-orange { color: #fb923c; }
 
         .hero-description {
-            font-size: 1.1rem;
-            color: #999;
-            margin: 2rem 0;
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin: 2.5rem 0;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
 
         .feature-tags {
@@ -306,19 +297,25 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
         }
 
         .feature-tag {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             background: rgba(26, 26, 36, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .feature-tag:hover {
+            border-color: var(--primary);
+            background: rgba(168, 85, 247, 0.1);
         }
 
         .cta-buttons {
@@ -326,26 +323,27 @@
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 1.1rem 2.5rem;
+            border-radius: 12px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
+            font-size: 1.1rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, #a855f7, #60a5fa);
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
         }
 
         .btn-outline {
@@ -360,9 +358,9 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .social-link {
@@ -374,7 +372,7 @@
             background: rgba(26, 26, 36, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             color: var(--foreground);
             text-decoration: none;
             transition: all 0.3s;
@@ -393,7 +391,7 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            color: #999;
+            color: var(--muted);
         }
 
         .scroll-indicator span {
@@ -426,7 +424,7 @@
         }
 
         .section-title h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1rem;
         }
 
@@ -440,11 +438,11 @@
 
         /* Glass Card */
         .glass-card {
-            background: rgba(26, 26, 36, 0.6);
+            background: rgba(20, 20, 30, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 24px;
+            padding: 2.5rem;
             transition: all 0.3s;
         }
 
@@ -462,30 +460,16 @@
             align-items: start;
         }
 
-        .about-content {
-            position: relative;
-        }
-
-        .about-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), transparent);
-            border-radius: 0 0 0 100%;
-        }
-
         .icon-box {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(168, 85, 247, 0.2);
-            border-radius: 12px;
-            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .education-item {
@@ -495,18 +479,18 @@
         }
 
         .education-item h4 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
         .education-item p {
-            color: #999;
+            color: var(--muted);
         }
 
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -514,14 +498,14 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .skill-tag {
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             background: rgba(51, 51, 64, 0.5);
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: all 0.3s;
         }
 
@@ -530,85 +514,10 @@
             color: var(--primary);
         }
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            overflow: hidden;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            transition: color 0.3s;
-        }
-
-        .project-card:hover h3 {
-            color: var(--primary);
-        }
-
-        .project-card p {
-            color: #999;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            padding: 0.25rem 0.75rem;
-            background: rgba(168, 85, 247, 0.1);
-            color: var(--primary);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-btn {
-            flex: 1;
-            padding: 0.75rem;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -631,20 +540,111 @@
         }
 
         .service-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
-            border-radius: 16px;
+            border-radius: 20px;
             margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
             transition: transform 0.3s;
         }
 
         .service-card:hover .service-icon {
             transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            overflow: hidden;
+            background: rgba(15, 15, 25, 0.8);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+            color: var(--foreground);
+        }
+
+        .project-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-btn {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
         }
 
         /* Certifications */
@@ -657,7 +657,7 @@
         }
 
         .cert-highlights {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .cert-highlight {
@@ -665,8 +665,8 @@
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 0.75rem;
-            color: #999;
-            font-size: 0.9rem;
+            color: var(--muted);
+            font-size: 1rem;
         }
 
         .check-icon {
@@ -677,16 +677,16 @@
         /* Contact Section */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .contact-card {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             text-decoration: none;
             color: inherit;
         }
@@ -696,24 +696,27 @@
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(168, 85, 247, 0.2);
-            border-radius: 12px;
-            font-size: 1.5rem;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 16px;
+            font-size: 1.8rem;
             transition: all 0.3s;
+            flex-shrink: 0;
         }
 
         .contact-info p:first-child {
-            font-size: 0.85rem;
-            color: #999;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
         }
 
         .contact-info p:last-child {
             font-weight: 600;
+            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
@@ -741,7 +744,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #999;
+            color: var(--muted);
         }
 
         .heart {
@@ -754,7 +757,7 @@
         }
 
         .footer-link {
-            color: #999;
+            color: var(--muted);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -781,7 +784,10 @@
                 padding: 4rem 1rem;
             }
 
-            .projects-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
             .services-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
@@ -790,6 +796,10 @@
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            code {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -816,7 +826,6 @@
     <section id="home" class="hero">
         <div class="floating-orb orb-1"></div>
         <div class="floating-orb orb-2"></div>
-        <div class="floating-orb orb-3"></div>
 
         <div class="hero-content">
             <div class="status-badge">
@@ -837,16 +846,15 @@
                     <span class="code-title">developer.js</span>
                 </div>
                 <code>
-                    <span class="code-purple">const</span> <span class="code-blue">skills</span> = <span class="code-yellow">[</span><br>
-                    &nbsp;&nbsp;<span class="code-green">"React"</span>, <span class="code-green">"JavaScript"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-green">"CSS3"</span>, <span class="code-green">"HTML5"</span><br>
-                    <span class="code-yellow">]</span>;
+                    <span class="code-purple">const</span> <span class="code-blue">skills</span> <span class="code-foreground">=</span> <span class="code-yellow">[</span><br>
+                    &nbsp;&nbsp;<span class="code-green">"React"</span><span class="code-foreground">,</span> <span class="code-green">"JavaScript"</span><span class="code-foreground">,</span><br>
+                    &nbsp;&nbsp;<span class="code-green">"CSS3"</span><span class="code-foreground">,</span> <span class="code-green">"HTML5"</span><br>
+                    <span class="code-yellow">]</span><span class="code-foreground">;</span>
                 </code>
             </div>
 
             <p class="hero-description">
-                Crafting responsive, user-friendly web applications with modern technologies. 
-                Passionate about clean code and beautiful user interfaces.
+                Crafting responsive, user-friendly web applications with modern technologies. Passionate about clean code and beautiful user interfaces.
             </p>
 
             <div class="feature-tags">
@@ -896,13 +904,13 @@
         </div>
 
         <div class="about-grid">
-            <div class="glass-card about-content">
+            <div class="glass-card">
                 <div class="icon-box">💻</div>
-                <h3>Who I Am</h3>
-                <p style="color: #999; margin: 1rem 0;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Who I Am</h3>
+                <p style="color: var(--muted); margin: 1rem 0; font-size: 1.05rem; line-height: 1.7;">
                     I'm a passionate Front-End Developer with strong problem-solving skills and hands-on experience through 4+ interactive projects. I love creating responsive, performance-optimized, and visually appealing web interfaces.
                 </p>
-                <p style="color: #999;">
+                <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.7;">
                     As a fresher with strong project-based experience, I bring fresh perspectives and modern development practices to every project I work on.
                 </p>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent);">
@@ -912,7 +920,7 @@
             </div>
 
             <div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Education</h3>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Education</h3>
                 <div class="glass-card education-item" style="margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🎓</div>
                     <div>
@@ -933,8 +941,6 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <div class="floating-orb" style="width: 350px; height: 350px; left: -10%; top: 30%;"></div>
-        
         <div class="section-title">
             <h2>My <span class="gradient-text">Skills</span></h2>
             <div class="title-underline"></div>
@@ -944,7 +950,7 @@
             <div class="glass-card">
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">💬</div>
-                    <h3>Languages & Frameworks</h3>
+                    <h3 style="font-size: 1.3rem;">Languages & Frameworks</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">HTML5</span>
@@ -958,7 +964,7 @@
             <div class="glass-card">
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🎨</div>
-                    <h3>Styling & Layout</h3>
+                    <h3 style="font-size: 1.3rem;">Styling & Layout</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">Bootstrap</span>
@@ -971,7 +977,7 @@
             <div class="glass-card">
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🛠️</div>
-                    <h3>Tools & Technologies</h3>
+                    <h3 style="font-size: 1.3rem;">Tools & Technologies</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">Git</span>
@@ -984,7 +990,7 @@
             <div class="glass-card">
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🌐</div>
-                    <h3>Web Concepts</h3>
+                    <h3 style="font-size: 1.3rem;">Web Concepts</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">DOM Manipulation</span>
@@ -998,8 +1004,6 @@
 
     <!-- Services Section -->
     <section id="services">
-        <div class="floating-orb" style="width: 300px; height: 300px; right: -10%; bottom: 20%;"></div>
-        
         <div class="section-title">
             <h2>My <span class="gradient-text">Services</span></h2>
             <div class="title-underline"></div>
@@ -1008,34 +1012,32 @@
         <div class="services-grid">
             <div class="glass-card service-card">
                 <div class="service-icon">💻</div>
-                <h3 style="margin-bottom: 1rem;">Front-End Web Development</h3>
-                <p style="color: #999;">Building responsive, interactive, and modern websites using the latest technologies and best practices.</p>
+                <h3>Front-End Web Development</h3>
+                <p>Building responsive, interactive, and modern websites using the latest technologies and best practices.</p>
             </div>
 
             <div class="glass-card service-card">
                 <div class="service-icon">📱</div>
-                <h3 style="margin-bottom: 1rem;">Responsive Website Design</h3>
-                <p style="color: #999;">Mobile-first, cross-device compatible layouts that look great on any screen size.</p>
+                <h3>Responsive Website Design</h3>
+                <p>Mobile-first, cross-device compatible layouts that look great on any screen size.</p>
             </div>
 
             <div class="glass-card service-card">
                 <div class="service-icon">🎮</div>
-                <h3 style="margin-bottom: 1rem;">JavaScript-Based Web Applications</h3>
-                <p style="color: #999;">Interactive games and dynamic UI components with smooth animations and efficient state management.</p>
+                <h3>JavaScript-Based Web Applications</h3>
+                <p>Interactive games and dynamic UI components with smooth animations and efficient state management.</p>
             </div>
 
             <div class="glass-card service-card">
                 <div class="service-icon">🎨</div>
-                <h3 style="margin-bottom: 1rem;">UI Implementation</h3>
-                <p style="color: #999;">Converting designs into pixel-perfect web pages with attention to every detail.</p>
+                <h3>UI Implementation</h3>
+                <p>Converting designs into pixel-perfect web pages with attention to every detail.</p>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <div class="floating-orb" style="width: 400px; height: 400px; left: -15%; top: 40%;"></div>
-        
         <div class="section-title">
             <h2>Featured <span class="gradient-text">Projects</span></h2>
             <div class="title-underline"></div>
@@ -1044,7 +1046,7 @@
         <div class="projects-grid">
             <div class="glass-card project-card">
                 <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-558Z-dec74498-chat-image-1765615427539-1.jpg" alt="Amazon Clone" class="project-image">
-                <h3>🛒 Amazon E-Commerce Clone</h3>
+                <h3>Amazon E-Commerce Clone</h3>
                 <p>Fully responsive e-commerce UI with product listings and cart functionality. Achieved 95% UI accuracy and optimized performance with sub-2s load time.</p>
                 <div class="tech-tags">
                     <span class="tech-tag">HTML5</span>
@@ -1064,7 +1066,7 @@
 
             <div class="glass-card project-card">
                 <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-443Z-3a4508be-chat-image-1765615427423-0.jpg" alt="Tic Tac Toe" class="project-image">
-                <h3>🎮 Tic Tac Toe Game</h3>
+                <h3>Tic Tac Toe Game</h3>
                 <p>Two-player game with real-time win logic and smooth animations. Efficient state management using event delegation.</p>
                 <div class="tech-tags">
                     <span class="tech-tag">JavaScript</span>
@@ -1083,7 +1085,7 @@
 
             <div class="glass-card project-card">
                 <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-821Z-ad3c2de7-chat-image-1765615427802-3.jpg" alt="Rock Paper Scissors" class="project-image">
-                <h3>✊ Rock Paper Scissors Game</h3>
+                <h3>Rock Paper Scissors Game</h3>
                 <p>Single-player game with AI opponent and dynamic score tracking. Enhanced engagement with animations and intuitive UI.</p>
                 <div class="tech-tags">
                     <span class="tech-tag">JavaScript</span>
@@ -1102,7 +1104,7 @@
 
             <div class="glass-card project-card">
                 <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-679Z-370262d8-chat-image-1765615427660-2.jpg" alt="Memory Card Game" class="project-image">
-                <h3>🃏 Memory Card Game</h3>
+                <h3>Memory Card Game</h3>
                 <p>Card-matching game with timer, move counter, and flip animations. Responsive grid layout with shuffle algorithm.</p>
                 <div class="tech-tags">
                     <span class="tech-tag">HTML5</span>
@@ -1124,8 +1126,6 @@
 
     <!-- Certifications Section -->
     <section>
-        <div class="floating-orb" style="width: 280px; height: 280px; right: -10%; top: 20%;"></div>
-        
         <div class="section-title">
             <h2><span class="gradient-text">Certifications</span></h2>
             <div class="title-underline"></div>
@@ -1136,8 +1136,8 @@
                 <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🏆</div>
                     <div>
-                        <h3 style="margin-bottom: 0.5rem;">JavaScript Certification</h3>
-                        <p style="color: #999;">Apna College</p>
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">JavaScript Certification</h3>
+                        <p style="color: var(--muted);">Apna College</p>
                     </div>
                 </div>
                 <div class="cert-highlights">
@@ -1164,8 +1164,8 @@
                 <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="icon-box" style="margin: 0;">🏆</div>
                     <div>
-                        <h3 style="margin-bottom: 0.5rem;">HTML & CSS Certification</h3>
-                        <p style="color: #999;">Apna College</p>
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">HTML & CSS Certification</h3>
+                        <p style="color: var(--muted);">Apna College</p>
                     </div>
                 </div>
                 <div class="cert-highlights">
@@ -1192,16 +1192,13 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="floating-orb" style="width: 350px; height: 350px; left: -15%; bottom: 10%;"></div>
-        <div class="floating-orb" style="width: 280px; height: 280px; right: -10%; top: 30%;"></div>
-        
         <div class="section-title">
             <h2>Get In <span class="gradient-text">Touch</span></h2>
             <div class="title-underline"></div>
         </div>
 
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">Let's Connect</h3>
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem;">Let's Connect</h3>
             
             <div class="contact-grid">
                 <a href="tel:+917011363007" class="glass-card contact-card">
@@ -1222,7 +1219,7 @@
 
                 <a href="https://github.com/anmolky-69" target="_blank" class="glass-card contact-card">
                     <div class="contact-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </div>
                     <div class="contact-info">
                         <p>GitHub</p>
@@ -1232,7 +1229,7 @@
 
                 <a href="https://www.linkedin.com/in/anmolkr09" target="_blank" class="glass-card contact-card">
                     <div class="contact-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </div>
                     <div class="contact-info">
                         <p>LinkedIn</p>
@@ -1264,12 +1261,11 @@
                 </a>
             </div>
 
-            <p style="color: #999; font-size: 0.9rem;">© 2025 All rights reserved.</p>
+            <p style="color: var(--muted); font-size: 0.9rem;">© 2025 All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1279,7 +1275,6 @@
             }
         });
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
