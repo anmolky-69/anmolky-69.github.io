@@ -85,6 +85,7 @@
             text-decoration: none;
             transition: color 0.3s;
             position: relative;
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
@@ -113,6 +114,7 @@
             border-radius: 8px;
             color: white;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -200,7 +202,7 @@
             padding: 0.5rem 1rem;
             border-radius: 50px;
             margin-bottom: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .status-dot {
@@ -237,58 +239,56 @@
         }
 
         .code-snippet {
-            background: rgba(20, 20, 30, 0.8);
+            background: rgba(15, 15, 25, 0.9);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
+            border: 1px solid rgba(168, 85, 247, 0.2);
             border-radius: 16px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 600px;
+            padding: 2rem;
+            margin: 2.5rem auto;
+            max-width: 650px;
             text-align: left;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .code-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .code-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
         }
 
-        .code-dot:nth-child(1) { background: #ef4444; }
-        .code-dot:nth-child(2) { background: #eab308; }
-        .code-dot:nth-child(3) { background: #22c55e; }
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27c93f; }
 
         .code-title {
-            font-size: 0.75rem;
             color: #999;
+            font-size: 0.85rem;
             margin-left: auto;
         }
 
-        code {
+        .code-content {
             font-family: 'Courier New', monospace;
             font-size: 1rem;
-            line-height: 2;
+            line-height: 1.8;
         }
 
-        .code-purple { color: #a855f7; }
-        .code-blue { color: #60a5fa; }
-        .code-yellow { color: #fbbf24; }
-        .code-green { color: #34d399; }
-        .code-orange { color: #fb923c; }
+        .code-keyword { color: #c792ea; }
+        .code-variable { color: #82aaff; }
+        .code-string { color: #c3e88d; }
+        .code-bracket { color: #ffcb6b; }
 
         .hero-description {
-            font-size: 1.2rem;
-            color: var(--muted);
-            margin: 2.5rem 0;
+            font-size: 1.25rem;
+            color: #b0b0b0;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 2rem auto;
             line-height: 1.8;
         }
 
@@ -315,30 +315,37 @@
 
         .feature-tag:hover {
             border-color: var(--primary);
-            background: rgba(168, 85, 247, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
         }
 
         .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin: 2.5rem 0;
+            margin: 3rem 0;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1.1rem 2.5rem;
+            padding: 1rem 2.5rem;
             border-radius: 12px;
             font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
             font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary {
-            background: linear-gradient(90deg, #a855f7, #60a5fa);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -347,8 +354,9 @@
         }
 
         .btn-outline {
+            background: transparent;
+            color: white;
             border: 2px solid var(--border);
-            color: var(--foreground);
         }
 
         .btn-outline:hover {
@@ -360,7 +368,7 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
         }
 
         .social-link {
@@ -373,16 +381,15 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: 16px;
-            color: var(--foreground);
-            text-decoration: none;
             transition: all 0.3s;
-            font-size: 1.5rem;
+            text-decoration: none;
+            color: white;
         }
 
         .social-link:hover {
             background: rgba(168, 85, 247, 0.2);
             border-color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.1);
         }
 
         .scroll-indicator {
@@ -391,7 +398,7 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            color: var(--muted);
+            color: #999;
         }
 
         .scroll-indicator span {
@@ -401,7 +408,8 @@
         }
 
         .scroll-arrow {
-            font-size: 1.5rem;
+            width: 24px;
+            height: 24px;
             animation: bounce 2s infinite;
         }
 
@@ -420,28 +428,32 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
             font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
             margin-bottom: 1rem;
         }
 
-        .title-underline {
+        .section-divider {
             width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
-            margin: 0 auto;
+            margin: 0 auto 4rem;
             border-radius: 2px;
         }
 
-        /* Glass Card */
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
         .glass-card {
-            background: rgba(20, 20, 30, 0.6);
+            background: rgba(26, 26, 36, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.3s;
         }
@@ -452,39 +464,27 @@
             transform: translateY(-5px);
         }
 
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .icon-box {
+        .card-icon {
             width: 60px;
             height: 60px;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
-            border-radius: 16px;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
         }
 
-        .education-item {
-            display: flex;
-            gap: 1rem;
-            align-items: start;
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
-        .education-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-item p {
-            color: var(--muted);
+        .card-text {
+            color: #b0b0b0;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         /* Skills Section */
@@ -492,21 +492,58 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(26, 26, 36, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(168, 85, 247, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-top: 1.5rem;
         }
 
         .skill-tag {
-            padding: 0.6rem 1.2rem;
-            background: rgba(51, 51, 64, 0.5);
+            padding: 0.75rem 1.25rem;
+            background: rgba(45, 45, 61, 0.5);
             border-radius: 50px;
             font-size: 0.95rem;
             transition: all 0.3s;
+            cursor: default;
         }
 
         .skill-tag:hover {
@@ -518,10 +555,17 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .service-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: all 0.4s;
             position: relative;
             overflow: hidden;
         }
@@ -532,94 +576,113 @@
             inset: 0;
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05));
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s;
         }
 
         .service-card:hover::before {
             opacity: 1;
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
+        .service-card:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.2);
+        }
+
+        .service-icon-box {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
-            border-radius: 20px;
+            margin-bottom: 2rem;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover .service-icon-box {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-title {
+            font-size: 1.75rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-            transition: transform 0.3s;
+            color: var(--primary);
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--foreground);
-        }
-
-        .service-card p {
-            color: var(--muted);
-            font-size: 1.05rem;
-            line-height: 1.7;
+        .service-description {
+            color: #b0b0b0;
+            line-height: 1.9;
+            font-size: 1.1rem;
         }
 
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .project-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 24px;
             overflow: hidden;
-            background: rgba(15, 15, 25, 0.8);
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 25px 70px rgba(168, 85, 247, 0.25);
         }
 
         .project-image {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
         .project-card:hover .project-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
-        .project-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
             transition: color 0.3s;
-            color: var(--foreground);
         }
 
-        .project-card:hover h3 {
+        .project-card:hover .project-title {
             color: var(--primary);
         }
 
-        .project-card p {
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.7;
+        .project-description {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+            font-size: 1.1rem;
         }
 
-        .tech-tags {
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .tech-tag {
-            padding: 0.4rem 1rem;
+            padding: 0.6rem 1.25rem;
             background: rgba(168, 85, 247, 0.15);
             color: var(--primary);
             border-radius: 50px;
@@ -629,141 +692,248 @@
 
         .project-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .project-btn {
             flex: 1;
             padding: 1rem;
-            text-align: center;
             border-radius: 12px;
-            text-decoration: none;
             font-weight: 600;
+            font-size: 1.05rem;
+            text-align: center;
+            text-decoration: none;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            font-size: 1.05rem;
         }
 
-        /* Certifications */
+        .btn-demo {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .btn-demo:hover {
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-github {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: white;
+        }
+
+        .btn-github:hover {
+            border-color: var(--primary);
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        /* Certifications Section */
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cert-highlights {
-            margin-top: 1.5rem;
+        .cert-card {
+            background: rgba(26, 26, 36, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
         }
 
-        .cert-highlight {
+        .cert-card:hover {
+            border-color: rgba(168, 85, 247, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .cert-header {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 16px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            color: var(--muted);
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cert-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: #999;
             font-size: 1rem;
         }
 
+        .cert-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
         .check-icon {
+            width: 20px;
+            height: 20px;
             color: var(--accent);
             flex-shrink: 0;
         }
 
         /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        .contact-container {
             max-width: 1000px;
             margin: 0 auto;
         }
 
+        .contact-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
         .contact-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.75rem;
+            transition: all 0.4s;
             text-decoration: none;
             color: inherit;
         }
 
-        .contact-card:hover .contact-icon {
-            background: rgba(168, 85, 247, 0.3);
+        .contact-card:hover {
+            background: rgba(26, 26, 36, 0.9);
+            border-color: rgba(168, 85, 247, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.2);
         }
 
-        .contact-icon {
-            width: 70px;
-            height: 70px;
+        .contact-icon-box {
+            width: 75px;
+            height: 75px;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
-            border-radius: 16px;
-            font-size: 1.8rem;
-            transition: all 0.3s;
             flex-shrink: 0;
+            transition: all 0.4s;
         }
 
-        .contact-info p:first-child {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-bottom: 0.25rem;
+        .contact-card:hover .contact-icon-box {
+            background: rgba(168, 85, 247, 0.3);
+            transform: scale(1.1);
         }
 
-        .contact-info p:last-child {
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 1rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.2rem;
             font-weight: 600;
-            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
-        .contact-card:hover .contact-info p:last-child {
+        .contact-card:hover .contact-value {
             color: var(--primary);
         }
 
         /* Footer */
         footer {
-            padding: 2rem;
             border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
 
         .footer-text {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--muted);
+            color: #999;
         }
 
         .heart {
             color: var(--primary);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .footer-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .footer-link {
-            color: var(--muted);
-            text-decoration: none;
+            color: #999;
             transition: color 0.3s;
         }
 
         .footer-link:hover {
             color: var(--primary);
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
@@ -777,19 +947,36 @@
             }
 
             .hero {
-                padding: 6rem 1rem 2rem;
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .code-snippet {
+                padding: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
             }
 
             section {
-                padding: 4rem 1rem;
+                padding: 4rem 1.5rem;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid,
-            .skills-grid {
+            .projects-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -797,15 +984,22 @@
                 flex-direction: column;
                 text-align: center;
             }
+        }
 
-            code {
-                font-size: 0.85rem;
-            }
+        /* SVG Icons */
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-lg {
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">AK</a>
@@ -826,7 +1020,7 @@
     <section id="home" class="hero">
         <div class="floating-orb orb-1"></div>
         <div class="floating-orb orb-2"></div>
-
+        
         <div class="hero-content">
             <div class="status-badge">
                 <span class="status-dot"></span>
@@ -840,34 +1034,41 @@
 
             <div class="code-snippet">
                 <div class="code-header">
-                    <div class="code-dot"></div>
-                    <div class="code-dot"></div>
-                    <div class="code-dot"></div>
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
                     <span class="code-title">developer.js</span>
                 </div>
-                <code>
-                    <span class="code-purple">const</span> <span class="code-blue">skills</span> <span class="code-foreground">=</span> <span class="code-yellow">[</span><br>
-                    &nbsp;&nbsp;<span class="code-green">"React"</span><span class="code-foreground">,</span> <span class="code-green">"JavaScript"</span><span class="code-foreground">,</span><br>
-                    &nbsp;&nbsp;<span class="code-green">"CSS3"</span><span class="code-foreground">,</span> <span class="code-green">"HTML5"</span><br>
-                    <span class="code-yellow">]</span><span class="code-foreground">;</span>
-                </code>
+                <div class="code-content">
+                    <span class="code-keyword">const</span> <span class="code-variable">skills</span> = <span class="code-bracket">[</span><br>
+                    &nbsp;&nbsp;<span class="code-string">"React"</span>, <span class="code-string">"JavaScript"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"CSS3"</span>, <span class="code-string">"HTML5"</span><br>
+                    <span class="code-bracket">]</span>;
+                </div>
             </div>
 
             <p class="hero-description">
-                Crafting responsive, user-friendly web applications with modern technologies. Passionate about clean code and beautiful user interfaces.
+                Crafting responsive, user-friendly web applications with modern technologies. 
+                Passionate about clean code and beautiful user interfaces.
             </p>
 
             <div class="feature-tags">
                 <div class="feature-tag">
-                    <span>💻</span>
+                    <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
                     <span>Clean Code</span>
                 </div>
                 <div class="feature-tag">
-                    <span>✨</span>
+                    <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
                     <span>Modern UI</span>
                 </div>
                 <div class="feature-tag">
-                    <span>⚡</span>
+                    <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
                     <span>Fast Performance</span>
                 </div>
             </div>
@@ -879,60 +1080,85 @@
 
             <div class="social-links">
                 <a href="https://github.com/anmolky-69" target="_blank" class="social-link">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/anmolkr09" target="_blank" class="social-link">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
                 </a>
                 <a href="mailto:anmolky69@gmail.com" class="social-link">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
                 </a>
             </div>
         </div>
 
         <div class="scroll-indicator">
             <span>Scroll Down</span>
-            <div class="scroll-arrow">↓</div>
+            <svg class="scroll-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <div class="section-title">
-            <h2>About <span class="gradient-text">Me</span></h2>
-            <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <div class="section-divider"></div>
 
         <div class="about-grid">
             <div class="glass-card">
-                <div class="icon-box">💻</div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Who I Am</h3>
-                <p style="color: var(--muted); margin: 1rem 0; font-size: 1.05rem; line-height: 1.7;">
+                <div class="card-icon">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="card-title">Who I Am</h3>
+                <p class="card-text">
                     I'm a passionate Front-End Developer with strong problem-solving skills and hands-on experience through 4+ interactive projects. I love creating responsive, performance-optimized, and visually appealing web interfaces.
                 </p>
-                <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.7;">
+                <p class="card-text" style="margin-top: 1rem;">
                     As a fresher with strong project-based experience, I bring fresh perspectives and modern development practices to every project I work on.
                 </p>
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent);">
-                    <span>✨</span>
-                    <span style="font-weight: 600;">Open to opportunities</span>
-                </div>
             </div>
 
             <div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Education</h3>
-                <div class="glass-card education-item" style="margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🎓</div>
-                    <div>
-                        <h4>Bachelor of Computer Applications (BCA)</h4>
-                        <p>DAV Institute of Management</p>
+                <h3 class="card-title" style="margin-bottom: 2rem;">Education</h3>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="glass-card">
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div class="card-icon" style="margin: 0;">
+                                <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Bachelor of Computer Applications (BCA)</h4>
+                                <p class="card-text">DAV Institute of Management</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="glass-card education-item">
-                    <div class="icon-box" style="margin: 0;">🎓</div>
-                    <div>
-                        <h4>High School</h4>
-                        <p>Army Public School</p>
+
+                    <div class="glass-card">
+                        <div style="display: flex; align-items: start; gap: 1.5rem;">
+                            <div class="card-icon" style="margin: 0;">
+                                <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">High School</h4>
+                                <p class="card-text">Army Public School</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -941,16 +1167,18 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <div class="section-title">
-            <h2>My <span class="gradient-text">Skills</span></h2>
-            <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <div class="section-divider"></div>
 
         <div class="skills-grid">
-            <div class="glass-card">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">💬</div>
-                    <h3 style="font-size: 1.3rem;">Languages & Frameworks</h3>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-category-title">Languages & Frameworks</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">HTML5</span>
@@ -961,10 +1189,14 @@
                 </div>
             </div>
 
-            <div class="glass-card">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🎨</div>
-                    <h3 style="font-size: 1.3rem;">Styling & Layout</h3>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-category-title">Styling & Layout</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">Bootstrap</span>
@@ -974,10 +1206,15 @@
                 </div>
             </div>
 
-            <div class="glass-card">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🛠️</div>
-                    <h3 style="font-size: 1.3rem;">Tools & Technologies</h3>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-category-title">Tools & Technologies</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">Git</span>
@@ -987,10 +1224,14 @@
                 </div>
             </div>
 
-            <div class="glass-card">
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🌐</div>
-                    <h3 style="font-size: 1.3rem;">Web Concepts</h3>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-icon">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="skill-category-title">Web Concepts</h3>
                 </div>
                 <div class="skill-tags">
                     <span class="skill-tag">DOM Manipulation</span>
@@ -1004,185 +1245,259 @@
 
     <!-- Services Section -->
     <section id="services">
-        <div class="section-title">
-            <h2>My <span class="gradient-text">Services</span></h2>
-            <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title">My <span class="gradient-text">Services</span></h2>
+        <div class="section-divider"></div>
 
         <div class="services-grid">
-            <div class="glass-card service-card">
-                <div class="service-icon">💻</div>
-                <h3>Front-End Web Development</h3>
-                <p>Building responsive, interactive, and modern websites using the latest technologies and best practices.</p>
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Front-End Web Development</h3>
+                <p class="service-description">
+                    Building responsive, interactive, and modern websites using the latest technologies and best practices.
+                </p>
             </div>
 
-            <div class="glass-card service-card">
-                <div class="service-icon">📱</div>
-                <h3>Responsive Website Design</h3>
-                <p>Mobile-first, cross-device compatible layouts that look great on any screen size.</p>
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Responsive Website Design</h3>
+                <p class="service-description">
+                    Mobile-first, cross-device compatible layouts that look great on any screen size.
+                </p>
             </div>
 
-            <div class="glass-card service-card">
-                <div class="service-icon">🎮</div>
-                <h3>JavaScript-Based Web Applications</h3>
-                <p>Interactive games and dynamic UI components with smooth animations and efficient state management.</p>
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">JavaScript-Based Web Applications</h3>
+                <p class="service-description">
+                    Interactive games and dynamic UI components with smooth animations and efficient state management.
+                </p>
             </div>
 
-            <div class="glass-card service-card">
-                <div class="service-icon">🎨</div>
-                <h3>UI Implementation</h3>
-                <p>Converting designs into pixel-perfect web pages with attention to every detail.</p>
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">UI Implementation</h3>
+                <p class="service-description">
+                    Converting designs into pixel-perfect web pages with attention to every detail.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <div class="section-title">
-            <h2>Featured <span class="gradient-text">Projects</span></h2>
-            <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <div class="section-divider"></div>
 
         <div class="projects-grid">
-            <div class="glass-card project-card">
-                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-558Z-dec74498-chat-image-1765615427539-1.jpg" alt="Amazon Clone" class="project-image">
-                <h3>Amazon E-Commerce Clone</h3>
-                <p>Fully responsive e-commerce UI with product listings and cart functionality. Achieved 95% UI accuracy and optimized performance with sub-2s load time.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://anmolky-69.github.io/amazone-clone" target="_blank" class="project-btn btn-primary">
-                        <span>🔗</span>
-                        <span>Live Demo</span>
-                    </a>
-                    <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-outline">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="glass-card project-card">
-                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-443Z-3a4508be-chat-image-1765615427423-0.jpg" alt="Tic Tac Toe" class="project-image">
-                <h3>Tic Tac Toe Game</h3>
-                <p>Two-player game with real-time win logic and smooth animations. Efficient state management using event delegation.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">DOM Manipulation</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://anmolky-69.github.io/tic-tak-toe/" target="_blank" class="project-btn btn-primary">
-                        <span>🔗</span>
-                        <span>Live Demo</span>
-                    </a>
-                    <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-outline">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop" alt="Amazon Clone" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Amazon E-Commerce Clone</h3>
+                    <p class="project-description">
+                        Fully responsive e-commerce UI with product listings and cart functionality. Achieved 95% UI accuracy and optimized performance with sub-2s load time.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://anmolky-69.github.io/amazone-clone" target="_blank" class="project-btn btn-demo">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-github">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="glass-card project-card">
-                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-821Z-ad3c2de7-chat-image-1765615427802-3.jpg" alt="Rock Paper Scissors" class="project-image">
-                <h3>Rock Paper Scissors Game</h3>
-                <p>Single-player game with AI opponent and dynamic score tracking. Enhanced engagement with animations and intuitive UI.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Algorithm Design</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://anmolky-69.github.io/rock-paper-scissors/" target="_blank" class="project-btn btn-primary">
-                        <span>🔗</span>
-                        <span>Live Demo</span>
-                    </a>
-                    <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-outline">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=800&h=600&fit=crop" alt="Tic Tac Toe" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Tic Tac Toe Game</h3>
+                    <p class="project-description">
+                        Two-player game with real-time win logic and smooth animations. Efficient state management using event delegation.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">DOM Manipulation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://anmolky-69.github.io/tic-tak-toe/" target="_blank" class="project-btn btn-demo">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-github">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="glass-card project-card">
-                <img src="https://nyc3.digitaloceanspaces.com/bhindi-drive/files/c8f0a0ad-e1e5-4d21-99d2-b11e18ce8bea/2025-12-13T08-43-47-679Z-370262d8-chat-image-1765615427660-2.jpg" alt="Memory Card Game" class="project-image">
-                <h3>Memory Card Game</h3>
-                <p>Card-matching game with timer, move counter, and flip animations. Responsive grid layout with shuffle algorithm.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=800&h=600&fit=crop" alt="Rock Paper Scissors" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Rock Paper Scissors Game</h3>
+                    <p class="project-description">
+                        Single-player game with AI opponent and dynamic score tracking. Enhanced engagement with animations and intuitive UI.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Algorithm Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://anmolky-69.github.io/rock-paper-scissors/" target="_blank" class="project-btn btn-demo">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-github">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://anmolky-69.github.io/memory-card-game/" target="_blank" class="project-btn btn-primary">
-                        <span>🔗</span>
-                        <span>Live Demo</span>
-                    </a>
-                    <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-outline">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop" alt="Memory Card Game" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Memory Card Game</h3>
+                    <p class="project-description">
+                        Card-matching game with timer, move counter, and flip animations. Responsive grid layout with shuffle algorithm.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://anmolky-69.github.io/memory-card-game/" target="_blank" class="project-btn btn-demo">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/anmolky-69" target="_blank" class="project-btn btn-github">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
-    <section>
-        <div class="section-title">
-            <h2><span class="gradient-text">Certifications</span></h2>
-            <div class="title-underline"></div>
-        </div>
+    <section id="certifications">
+        <h2 class="section-title"><span class="gradient-text">Certifications</span></h2>
+        <div class="section-divider"></div>
 
         <div class="cert-grid">
-            <div class="glass-card">
-                <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🏆</div>
+            <div class="cert-card">
+                <div class="cert-header">
+                    <div class="cert-icon">
+                        <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
                     <div>
-                        <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">JavaScript Certification</h3>
-                        <p style="color: var(--muted);">Apna College</p>
+                        <h3 class="cert-title">JavaScript Certification</h3>
+                        <p class="cert-issuer">Apna College</p>
                     </div>
                 </div>
                 <div class="cert-highlights">
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>ES6+</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>OOP</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>async/await</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>Advanced problem-solving</span>
                     </div>
                 </div>
             </div>
 
-            <div class="glass-card">
-                <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="icon-box" style="margin: 0;">🏆</div>
+            <div class="cert-card">
+                <div class="cert-header">
+                    <div class="cert-icon">
+                        <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
                     <div>
-                        <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">HTML & CSS Certification</h3>
-                        <p style="color: var(--muted);">Apna College</p>
+                        <h3 class="cert-title">HTML & CSS Certification</h3>
+                        <p class="cert-issuer">Apna College</p>
                     </div>
                 </div>
                 <div class="cert-highlights">
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>Semantic HTML5</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>Flexbox</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>Grid</span>
                     </div>
-                    <div class="cert-highlight">
-                        <span class="check-icon">✓</span>
+                    <div class="highlight-item">
+                        <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                         <span>Responsive design</span>
                     </div>
                 </div>
@@ -1192,48 +1507,58 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="section-title">
-            <h2>Get In <span class="gradient-text">Touch</span></h2>
-            <div class="title-underline"></div>
-        </div>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <div class="section-divider"></div>
 
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem;">Let's Connect</h3>
+        <div class="contact-container">
+            <h3 class="contact-title">Let's Connect</h3>
             
             <div class="contact-grid">
-                <a href="tel:+917011363007" class="glass-card contact-card">
-                    <div class="contact-icon">📞</div>
+                <a href="tel:+917011363007" class="contact-card">
+                    <div class="contact-icon-box">
+                        <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
                     <div class="contact-info">
-                        <p>Phone</p>
-                        <p>+91-7011363007</p>
+                        <p class="contact-label">Phone</p>
+                        <p class="contact-value">+91-7011363007</p>
                     </div>
                 </a>
 
-                <a href="mailto:anmolky69@gmail.com" class="glass-card contact-card">
-                    <div class="contact-icon">✉️</div>
+                <a href="mailto:anmolky69@gmail.com" class="contact-card">
+                    <div class="contact-icon-box">
+                        <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
                     <div class="contact-info">
-                        <p>Email</p>
-                        <p>anmolky69@gmail.com</p>
+                        <p class="contact-label">Email</p>
+                        <p class="contact-value">anmolky69@gmail.com</p>
                     </div>
                 </a>
 
-                <a href="https://github.com/anmolky-69" target="_blank" class="glass-card contact-card">
-                    <div class="contact-icon">
-                        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/anmolky-69" target="_blank" class="contact-card">
+                    <div class="contact-icon-box">
+                        <svg class="icon-lg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
                     </div>
                     <div class="contact-info">
-                        <p>GitHub</p>
-                        <p>github.com/anmolky-69</p>
+                        <p class="contact-label">GitHub</p>
+                        <p class="contact-value">github.com/anmolky-69</p>
                     </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/anmolkr09" target="_blank" class="glass-card contact-card">
-                    <div class="contact-icon">
-                        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://www.linkedin.com/in/anmolkr09" target="_blank" class="contact-card">
+                    <div class="contact-icon-box">
+                        <svg class="icon-lg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
                     </div>
                     <div class="contact-info">
-                        <p>LinkedIn</p>
-                        <p>linkedin.com/in/anmolkr09</p>
+                        <p class="contact-label">LinkedIn</p>
+                        <p class="contact-value">linkedin.com/in/anmolkr09</p>
                     </div>
                 </a>
             </div>
@@ -1245,27 +1570,34 @@
         <div class="footer-content">
             <div class="footer-text">
                 <span>Made with</span>
-                <span class="heart">❤️</span>
+                <span class="heart">♥</span>
                 <span>by Anmol Kumar</span>
             </div>
 
             <div class="footer-links">
                 <a href="https://github.com/anmolky-69" target="_blank" class="footer-link">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/anmolkr09" target="_blank" class="footer-link">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
                 </a>
                 <a href="mailto:anmolky69@gmail.com" class="footer-link">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
                 </a>
             </div>
 
-            <p style="color: var(--muted); font-size: 0.9rem;">© 2025 All rights reserved.</p>
+            <p class="copyright">© 2024 All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -1275,6 +1607,7 @@
             }
         });
 
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
